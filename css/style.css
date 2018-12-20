@@ -1,0 +1,557 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/************************************************************************
+        DEBUT DE LA FEUILLE DE STYLE POUR LE SITE
+************************************************************************/
+
+body {
+    font-family: Trebuchet, arial, verdana, sans-serif;
+    line-height: 1.2;
+    background: #EEE; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, #999, #EEE); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #999, #EEE); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #999, #EEE); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(bottom right, #999, #EEE); /* Standard syntax */
+}
+
+i {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 20px 0;
+    text-decoration: underline;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+a[href], a[href]:visited {
+    color: #0000DD;
+    text-decoration: none;
+}
+
+a[href]:hover {
+    text-decoration: underline;
+}
+
+a[href^=http]:hover {
+    padding-right: 20px;
+    background: url(../images/lien_externe.gif) right center no-repeat;
+}
+a[href^=http]:hover::after {
+    content: " (" attr(href) ")";
+}
+
+body > header, main, body > footer {
+    width: 900px;
+    margin: 0px auto;
+    background-color: transparent;
+}
+
+
+
+p, blockquote {
+    text-align: justify;
+    margin: 10px auto;
+}
+
+blockquote {
+    font-style: italic;
+    padding: 5px 30px; 
+    quotes: "«\00A0" "\00A0»";
+}
+
+blockquote::before {
+    content: open-quote;
+    font-size: 18px;
+}
+blockquote::after {
+    content: close-quote;
+    font-size: 18px;
+}
+
+body > aside {
+    border-left: solid 1px #000;
+    text-align: center;
+    width: 160px;
+    position: fixed;
+    padding: 20px 0 20px 10px;
+}
+
+/************************************************************************
+                        Menu de navigation
+*************************************************************************/
+
+nav {
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+    width: 100%;
+    height: 40px;
+}
+
+nav > ul:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+nav > ul {
+    width: 80%;
+    height: 40px;
+    margin: 0 auto;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.4s linear 0s;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 0 0 10px 10px;
+}
+
+
+nav > ul > li {
+    display: inline;
+    float: left;
+    border-radius: 10px;
+    width: 20%;
+    overflow: visible;
+}
+    
+nav > ul > li > ul {
+    display: none;
+    margin-top: 5px;
+    margin-left: 0px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+nav > ul > li:hover > ul {
+    display: block;
+}
+
+nav > ul > li:hover > a::before {
+    content: "\2630\00A0";
+}
+
+
+nav a[href], nav a[href]:visited {
+    display: block;
+    font-weight: bold;
+    color: black;
+    border-radius: 10px;
+    transition: background 0.4s linear 0s;
+    padding: 10px 5px 10px 20px;
+}
+
+nav a[href]:hover {
+    text-decoration: none;
+}
+
+nav a[href]:hover {
+    color: #FFF;
+    border-radius: 10px;
+    background: #333;
+}
+
+/**********************************************************************
+                        EN-TETE 
+**********************************************************************/
+
+body > header {
+    position: relative;
+    margin-top: 42px;
+    background: transparent url(../images/fond.png) top left;
+    height: 200px;
+}
+
+header > img {
+    margin: 10px;
+}
+
+header h1 {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+
+article {
+    background-color: white;
+}
+
+
+
+/******************************************************************
+    Gestion des articles dans les pages des semaines + archives 
+*******************************************************************/
+
+/** Style des article */
+#actus > article {
+    box-shadow: 10px 10px 20px #000;
+    padding: 10px 20px;
+    margin: 20px 0 40px 0;
+    border-radius: 10px 0 20px 0;
+}
+
+/** Images dans les articles (taille + animation au survol) */
+#actus > article img {
+    width: 250px;
+    height: 187px;
+}
+#actus > article img:hover:after {
+    content: attr(alt);
+}
+
+
+/* Alternance images d'illsutrations à droite / à gauche */
+#actus > article:nth-child(even) > img {
+    float: right;
+    margin: 0px 0 10px 15px; 
+}
+#actus > article:nth-child(odd) > img {
+    float: left;
+    margin: 0px 15px 10px 0; 
+}
+
+/** Style du pied d'article */
+#actus > article > footer {
+    margin-top: 20px;
+    border-top: solid 1px #333;
+    padding-top: 3px;
+    text-align: right;
+    font-size: 12px;
+}
+
+/** Style des listes dans les articles */
+#actus article ul  {
+    padding-left: 10px;
+}
+#actus article ul li::before {
+    content: "\2611\00A0"; 
+    font-size: 20px;
+}
+
+/** blocs contenant les vidéos */
+#actus article div.video {
+    display: block;
+    width: 255px;
+    text-align: center;
+    margin: 10px 10px;
+    float: left;
+}
+
+article h3[id] {
+    margin-top: -60px;
+    padding-top: 65px;
+}
+
+
+/****************************************************************** 
+                        Sections
+*******************************************************************/
+section {
+    position: relative;
+    display: block;
+    clear: both;
+    margin: 40px 0 50px 0;
+    background-color: white;    
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border-radius: 0 10px 10px 10px;
+    box-shadow: 10px 10px 10px #000;
+}
+
+section > h2 {
+    position: absolute;
+    top: -30px;
+    left: 0px;
+    height: 20px;
+    background: red;
+    color: white;
+    font-weight: bold;
+    width: auto;
+    border-radius: 0 10px 0 0;
+    padding: 5px 10px;
+}
+
+section article h3 {
+    font-size: 16px;
+    text-decoration: none;
+}
+
+/*** Sections de la page d'index ***/
+
+#index section h3 {
+    text-align: justify;
+}
+
+#index section article {
+    display: block;
+    float: left;
+    margin: 15px;
+    width: 260px;
+}
+#index section article img {
+    width: 260px;
+    height: 195px;
+}
+
+#index section {
+    min-height: 315px;
+}
+
+/*** Sections de la page décrivant la rédaction ***/
+#redaction article {
+    position: relative;
+    padding: 20px;
+    clear: both;
+    height: 210px;
+    margin: 10px 0 10px 0; 
+} 
+
+#redaction article:not(:only-of-type) {
+    border-top: solid 2px #000;
+}
+
+#redaction article aside {
+    width: 150px;
+    float: left;
+    padding: 0;
+    margin-right: 20px;
+}
+
+#redaction h4 {
+    position: absolute;
+    width: auto;
+    text-align: right;
+    right: 0px;
+    padding: 5px;
+    background: black;
+    color: white;
+    top: 0px;
+    font-size: 14px;
+}
+
+
+/** Liens dans les pages d'index */
+#index article > a, #index article > a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+#index article > a:hover img {
+    box-shadow: 0px 0px 10px #F00;
+}
+
+#index article > a:hover {
+    text-decoration: underline;
+}
+
+
+
+/********************************************************************** 
+                        Blocs spécifiques 
+***********************************************************************/
+
+.interview dt {
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: justify;
+}
+
+.interview dd {
+    text-align: justify;
+    font-style: italic;
+}
+
+
+/****************************************************************
+                            FORMULAIRE
+****************************************************************/
+
+form input[type=text], form input[type=email] {
+    width: 200px;
+}
+
+form input[type=number] {
+    width: 60px;
+}
+
+form table {
+    width: 500px;
+    margin: 10px auto;
+}
+
+form table td {
+    padding: 2px;
+    margin: 2px;
+}
+
+form td:first-child {
+    width: 230px;
+    text-align: right;
+}
+
+#duree input[type=radio] {
+    display: none;
+}
+
+#duree input + label {
+    display: block;
+    width: 140px;
+    height: 200px;
+    box-sizing: border-box;
+    margin: 10px 40px 20px 40px;
+    float: left;
+    border: solid 5px black;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 30px;
+    background: url(../images/fond.png) top left no-repeat;
+    text-align: center;
+    padding-top: 70px;
+}
+
+#duree input:checked + label {
+    border-color: red;
+    color: red;
+}
+
+input[type=checkbox] {
+    margin-left: 40px;
+}
+#cbPapier ~ table {
+    display: none;
+}
+#cbPapier:checked ~ table {
+    display: block;
+    margin: 10px auto 10px 10px;
+}
+
+form p {
+    margin-top: 10px;
+    clear: both;
+}
+
+form section:last-of-type p:last-of-type {
+    text-align: center;
+}
+
+form section:last-of-type p:last-of-type input {
+    margin: 10px 10px 0 10px;
+    width: 100px;
+    text-align: center;
+    height: 30px;
+    line-height: 20px;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: bold;
+    border: solid 2px #444;
+}
+
+form section:last-of-type p:last-of-type input:hover {
+    background: red;
+    color: white;
+}
+
+
+/****************************************************************
+                            Tableau horoscope
+****************************************************************/
+
+#horoscope {
+    width: 700px;
+    margin: 10px auto;
+    font-size: 14px;
+}
+
+#horoscope tr:first-child td {
+    font-weight: bold;
+}
+
+#horoscope tr {
+    height: 30px; 
+}
+
+#horoscope td {
+    padding: 5px 10px;
+    border: solid 1px #000;
+    text-align:justify;
+}
+
+#horoscope td:nth-child(1), #horoscope td:nth-child(2) {
+    width: 100px;
+}
+
+
+
+
+
+/****************************************************************
+                            Pied de page
+****************************************************************/
+body > footer {
+    clear: both;
+    text-align: center;
+    margin-bottom: 10px;
+}
