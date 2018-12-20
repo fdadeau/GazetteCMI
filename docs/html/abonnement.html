@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>La gazette du CMI - Le site d'information n°1 des étudiants en CMI</title>
+    <link type="text/css" rel="stylesheet" href="../css/style.css">    
+</head>
+    
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="#">Les actus</a>
+                <ul>
+                    <li><a href="2016-nov-14.html">Semaine du 14/11</a></li>
+                    <li><a href="2016-nov-07.html">Semaine du 7/11</a></li>
+                    <li><a href="archives.html">archives</a></li>
+                </ul>
+            </li>
+            <li><a href="abonnement.html">S'abonner</a></li>
+            <li><a href="apropos.html">A propos</a></li>
+            <li><a href="mailto:contact@gazette-cmi.fr?subject=J%20aime%20beaucoup%20ce%20que%20vous%20faites">Nous contacter</a></li>
+        </ul>
+    </nav>    
+
+    <header>
+        <img src="../images/titre.png" alt="La Gazette du CMI" width="685" height="128">
+        <h1>S'abonner</h1>
+    </header>
+
+    <main id="abonnement">
+
+        <form method="get" action="validation.html">
+
+            <section>
+        
+            <h2>Informations personnelles</h2>    
+            
+            <p>Merci de remplir les informations suivantes (tous les champs sont obligatoires) </p>    
+                
+            <table>
+                <tr>
+                    <td>Votre nom :</td>
+                    <td><input type="text" name="txtNom" value="" placeholder="Entrez votre nom" required></td>
+                </tr>
+                <tr>
+                    <td>Votre prenom :</td>
+                    <td><input type="text" name="txtPrenom" value="" placeholder="Entrez votre prénom" required></td>
+                </tr>
+                <tr>
+                    <td>Votre adresse email :</td>
+                    <td><input type="email" name="txtEmail" value="" placeholder="xxx@yyy.zz" required></td>
+                </tr>
+                <tr>
+                    <td>Votre numéro de téléphone :</td>
+                    <td><input type="tel" name="telNum" value="" placeholder="Format : 03.81.66.64.52" pattern="^(\d{2}\.){4}\d{2}$" required></td>
+                </tr>
+                <tr>
+                    <td>Votre date de naissance :</td>
+                    <td>
+                        <input type="number" name="numJour" min="1" max="31" required>
+                        <select name="numMois" size="1" required>
+                            <option value="">Mois</option>
+                            <option value="1" selected>Janvier</option>
+                            <option value="2">Février</option>
+                            <option value="3">Mars</option>
+                            <option value="4">Avril</option>
+                            <option value="5">Mai</option>
+                            <option value="6">Juin</option>
+                            <option value="7">Juillet</option>
+                            <option value="8">Août</option>
+                            <option value="9">Septembre</option>
+                            <option value="10">Octobre</option>
+                            <option value="11">Novembre</option>
+                            <option value="12">Décembre</option>
+                        </select>
+                        <input type="number" name="numAnnee" min="1900" max="1998" required>
+                    </td>
+                </tr>
+            </table>
+            
+        </section>
+            
+        <section>
+            <h2>Formule d'abonnement</h2> 
+            
+            <p>Choisissez la durée d'abonnement souhaitée :</p>
+            
+            <div id="duree">
+                <input type="radio" name="radAbo" value="1" id="radAbo1">
+                <label for="radAbo1">1 mois</label>
+
+                <input type="radio" name="radAbo" value="3" id="radAbo3">
+                <label for="radAbo3">3 mois</label>
+
+                <input type="radio" name="radAbo" value="6" id="radAbo6">
+                <label for="radAbo6">6 mois</label>
+
+                <input type="radio" name="radAbo" value="12" id="radAbo12" checked>
+                <label for="radAbo12">1 an</label>
+            </div>
+            
+            <p>Choisissez le type de support : </p>
+            
+            <div id="formule">
+                <input type="checkbox" name="cbElec" value="1" id="cbElec">
+                <label for="cbElec">Version électronique</label>
+            
+                <input type="checkbox" name="cbPapier" value="1" id="cbPapier">
+                <label for="cbPapier">Version papier</label>
+            
+                
+                <table>
+                <tr>
+                    <td>Votre adresse :</td>
+                    <td><input type="text" name="txtAdresse" value="" placeholder="Entrez votre adresse"></td>
+                </tr>
+                <tr>
+                    <td>Votre code postal :</td>
+                    <td><input type="number" name="numCP" min="1000" max="99999"></td>
+                </tr>
+                <tr>
+                    <td>Votre ville :</td>
+                    <td><input type="text" name="txtVille" value="" placeholder="Entrez votre ville"></td>
+                </tr>
+            </table>
+                
+        </div>
+            
+        </section>    
+            
+        <section> 
+            <h2>Validation</h2>
+            
+            <p><input type="checkbox" name="cbCGU" id="condUsage" value="1"><label for="condUsage">J'ai bien lu et j'accepte les conditions générales d'utilisation.</label></p>
+
+            <p><input type="checkbox" name="cbOffres" id="offresMail" value="1" checked><label for="offresMail">J'accepte de recevoir des offres de nos partenaires par mail.</label></p>
+
+            <p>
+                <input type="submit" name="btnValider" value="S'abonner">
+                <input type="reset" name="btnReset" value="Annuler">            
+            </p>     
+        </section>
+            
+        <input type="hidden" name="txtID" value="FDadeau">
+    </form>
+            
+                     
+    </main>
+    
+    <footer>
+        &copy; CMI Informatique - Novembre 2016 - Tous droits réservés
+    </footer>
+    
+    
+</body>
+
+
+</html>

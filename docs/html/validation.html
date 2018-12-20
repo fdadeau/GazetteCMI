@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>La gazette du CMI | Validation de l'abonnement</title>
+    <meta charset="UTF-8">
+    <script language="javascript">
+    
+verifParametres = function() {
+    
+    var url = document.URL;
+    
+    // découpage des paramètres de l'URL
+    var params = document.URL.substr(document.URL.indexOf('?',0)+1).split('\&');
+    
+    var allParams = new Object();
+    for (var i in params) {
+        zeParam = params[i].split('=');
+        allParams[zeParam[0]] = zeParam[1];
+    } 
+    
+    // tableau des erreurs
+    var errors = [];
+    
+    /** vérification de l'existence et de la validité des parametres **/
+    
+    
+    // nom
+    if (allParams["txtNom"]) {
+        if (allParams["txtNom"].size==0) {
+            errors.push("La valeur du paramètre <i>txtNom</i> n'est pas correcte.");
+        }
+    }
+    else {
+        errors.push("Le paramètre <i>txtNom</i> n'a pas été défini.");
+    }
+    // prenom
+    if (allParams["txtPrenom"]) {
+        if (allParams["txtPrenom"].size==0) {
+            errors.push("La valeur du paramètre <i>txtPrenom</i> n'est pas correcte.");
+        }
+    }
+    else {
+        errors.push("Le paramètre <i>txtPrenom</i> n'a pas été défini.");
+    }
+
+    
+    // jour
+    if (allParams["numJour"]) {
+        if (allParams["numJour"] < 1 || allParams["numJour"] > 31) {
+            errors.push("La valeur du paramètre <i>numJour</i> n'est pas correcte.");
+        }
+    }
+    else {
+        errors.push("Le paramètre <i>numJour</i> n'a pas été défini.");   
+    }
+    // mois
+    if (allParams["numMois"]) {
+        if (allParams["numMois"] < 1 || allParams["numMois"] > 12) {
+            errors.push("La valeur du paramètre <i>numMois</i> n'est pas correcte.");
+        }
+    }
+    else {
+        errors.push("Le paramètre <i>numMois</i> n'a pas été défini.");   
+    }
+    // annee
+    if (allParams["numAnnee"]) {
+        if (allParams["numAnnee"] < 1900 || allParams["numAnnee"] > 1998) {
+            errors.push("La valeur du paramètre <i>numAnnee</i> n'est pas correcte.");
+        }
+    }
+    else {
+        errors.push("Le paramètre <i>numAnnee</i> n'a pas été défini.");   
+    }
+
+    
+    // email
+    if (allParams["txtEmail"]) {
+        if (allParams["txtEmail"].size==0 || allParams["txtEmail"].replace("%40","@").indexOf('@') < 0) {
+            errors.push("La valeur du paramètre <i>txtEmail</i> n'est pas correcte.");
+        }
+    }
+    else {
+        errors.push("Le paramètre <i>txtEmail</i> n'a pas été défini.");
+    }
+    // telephone
+    if (allParams["telNum"]) {
+        if (!allParams["telNum"].match(/^(\d{2}\.){4}\d{2}$/)) {
+            errors.push("La valeur du paramètre <i>telNum</i> n'est pas correcte.");
+        }
+    }
+    else {
+        errors.push("Le paramètre <i>telNum</i> n'a pas été défini.");
+    }
+
+    // radAbo
+    if (allParams["radAbo"]) {
+        if (allParams["radAbo"] != "1" && allParams["radAbo"] != "3" && allParams["radAbo"] != "6" && allParams["radAbo"] != "12") {
+            errors.push("La valeur du paramètre <i>radAbo</i> n'est pas correcte.");
+        }
+    }
+    else {
+        errors.push("Le paramètre <i>radAbo</i> n'a pas été défini.");
+    }
+
+    // type d'abonnement 
+    if (!allParams["cbPapier"] && !allParams["cbElec"]) {
+        errors.push("Au moins une formule d'abonnement (version électronique ou version papier) doit être sélectionnée. ");
+    }
+    
+    if (allParams["cbPapier"]) {
+       // adresse
+        if (allParams["txtAdresse"]) {
+            if (allParams["txtAdresse"].size==0) {
+                errors.push("La valeur du paramètre <i>txtAdresse</i> n'est pas correcte.");
+            }
+        }
+        else {
+            errors.push("Le paramètre <i>txtAdresse</i> n'a pas été défini.");
+        }        
+       // ville
+        if (allParams["txtVille"]) {
+            if (allParams["txtVille"].size==0) {
+                errors.push("La valeur du paramètre <i>txtVille</i> n'est pas correcte.");
+            }
+        }
+        else {
+            errors.push("Le paramètre <i>txtVille</i> n'a pas été défini.");
+        }        
+        // cp
+        if (allParams["numCP"]) {
+            if (allParams["numCP"] < 1000 || allParams["numCP"] > 99999) {
+                errors.push("La valeur du paramètre <i>numCP</i> n'est pas correcte.");
+            }
+        }
+        else {
+            errors.push("Le paramètre <i>numCP</i> n'a pas été défini.");   
+        }       
+    }
+    
+    // cgu
+    if (allParams["cbCGU"]) {
+        if (allParams["cbCGU"] != "1") {
+            errors.push("La valeur du paramètre <i>cbCGU</i> n'est pas correcte.");
+        }
+    }
+    else {
+        errors.push("Le paramètre <i>cbCGU</i> n'a pas été défini.");
+    }
+    // offres mail
+    if (allParams["cbOffres"]) {
+        if (allParams["cbOffres"] != "1") {
+            errors.push("La valeur du paramètre <i>cbOffres</i> n'est pas correcte.");
+        }
+    }
+
+    // id
+    if (allParams["txtID"]) {
+        if (allParams["txtID"].size==0) {
+            errors.push("La valeur du paramètre <i>txtID</i> n'est pas correcte.");
+        }
+    }
+    else {
+        errors.push("Le paramètre <i>txtID</i> n'a pas été défini.");
+    }
+
+
+    // affichage du résultat 
+    if (errors.length > 0) {
+        document.body.innerHTML = "<p>Le demande d'abonnement n'a pas pu être validée pour les raisons suivantes : </p><ul>";
+        for (var i in errors) {
+            document.body.innerHTML += "<li> - " + errors[i] + "</li>"; 
+        }
+        document.body.innerHTML += "</ul><p><a href='javascript:window.history.back()'>Retour à la réservation</a></p>";
+    }
+    else {
+        document.body.innerHTML = "<p>Réservation effectuée avec succès !</p><p><a href='../index.html'>Retour à l'accueil</a></p>";
+    }
+    
+}
+    
+    </script>
+</head>
+    
+<body onload="verifParametres()">
+
+    
+    
+    
+</body>
+
+</html>

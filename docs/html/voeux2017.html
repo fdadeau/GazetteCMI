@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>La gazette du CMI - Le site d'information n°1 des étudiants en CMI</title>
+    <link type="text/css" rel="stylesheet" href="../css/style.css">
+    <style>
+
+        #myIFrame {
+            display: block;
+            width: 700px;
+            height: 400px;
+            background-color: white;
+            margin: 10px auto;
+            padding: 0;
+        }
+        
+        #videoUFC {
+            display: block;
+            width: 560px;
+            height: 315px;
+            margin: 10px auto;
+        } 
+        
+        sup {
+            vertical-align: super;
+            cursor: help;
+        }
+        
+        #enbas {
+            display: none;
+            font-size:80%;
+        }
+        
+        sup:hover ~ #enbas {
+            display: block;
+        }
+        
+        sup {
+            font-size: 50%;
+        }
+        
+        #coordonnees {
+            width: 600px !important;
+            margin: 10px !important;
+        }
+        
+        #coordonnees tr td:first-child {
+            vertical-align: super;
+            width: 150px !important;
+        }
+        
+        #message {
+            width: 500px;
+            display: block;
+            margin: 10px auto;
+            height: 50px;
+        }
+    
+        #wishlist li {
+            display: inline-block;
+            margin-left: 0px;
+            width: 200px;
+        }
+        
+        li input[type=checkbox] {
+            margin-right: 5px;
+            margin-left: 10px;
+        }
+        
+        
+    </style>
+</head>
+    
+<body>
+    
+    <nav>
+        <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="#">Les actus</a>
+                <ul>
+                    <li><a href="2016-nov-14.html">Semaine du 14/11</a></li>
+                    <li><a href="2016-nov-07.html">Semaine du 7/11</a></li>
+                    <li><a href="archives.html">archives</a></li>
+                </ul>
+            </li>
+            <li><a href="abonnement.html">S'abonner</a></li>
+            <li><a href="apropos.html">A propos</a></li>
+            <li><a href="mailto:contact@gazette-cmi.fr?subject=J%20aime%20beaucoup%20ce%20que%20vous%20faites">Nous contacter</a></li>
+        </ul>
+    </nav>    
+
+    <header>
+        <img src="../images/titre.png" id=titre alt="La Gazette du CMI">
+        <h1>Carte de v&oelig;ux 2017</h1>
+    </header>
+    
+    <main id="voeux">
+
+        <section>
+            <h2>Une opportunité exceptionnelle à ne pas rater !</h2>
+
+            <p>En ce début d'année, la Gazette du CMI vous propose de faire parvenir des <a href="https://fr.wikipedia.org/wiki/Carte_de_v%C5%93ux#Les_cartes_de_v.C5.93ux_virtuelles" target="_blank">cartes de v&oelig;ux virtuelles</a> de bonne année à vos proches, par l'intermédiaire de ses journalistes vedettes. </p>
+            
+            <p>Ces cartes de voeux nous sont enviées par le monde entier, comme en témoignent les réactions ci-dessous. </p>
+            
+            <blockquote>
+                C'est bien simple : à la Présidence, nous sommes tout simplement jaloux. La qualité des cartes de voeux 
+                de la Gazette du CMI surpasse de loin la vidéo que nous avons réalisée pour l'université de Franche-Comté.
+            
+            <iframe id="videoUFC" width="560" height="315" src="https://www.youtube.com/embed/pKDVbRoPo9Y" allowfullscreen></iframe>
+                
+            Nous allons monter un partenariat avec la Gazette pour que son designer, le futur Dr. Jourdelesse, 
+                nous fasse de belles cartes de voeux pour l'année 2018. 
+            </blockquote>
+            <p>commente Jacques Bahi, président de notre magnifique Université.</p> 
+            
+        </section>
+        
+        <form action="carte.html" method="get" target="myIFrame">
+            <section>
+                <p style="margin-bottom: 30px;">
+                    Pour réaliser votre carte, c'est simple : remplissez les informations demandées ci-dessous. 
+                </p>
+
+                <h2>Composez votre carte de v&oelig;ux</h2>
+
+                <p>Choisissez votre porte-parole parmi nos journalistes-vedette :
+                    <select name="journaliste">
+                        <optgroup label="Notre rédacteur en chef">
+                            <option value="johnny">Johnny Bigoude</option>
+                        </optgroup>
+                        <optgroup label="Nos premiers violons">
+                            <option value="delphine" selected>Delphine Talaron</option>
+                            <option value="alex">Alex Kuzbidon</option>
+                            <option value="kelly">Kelly Diot</option>
+                        </optgroup>
+                        <optgroup label="Nos sous-fifres">
+                            <option value="pete">Pete Heupakeur</option>
+                            <option value="yves">Yves Jourdelesse</option>
+                        </optgroup>
+                    </select>
+                </p>                
+
+                <p>
+                    Choisissez ce que vous souhaitez : 
+                </p>
+                <ul id="wishlist">
+                    <li><input type="checkbox" name="cbJN" id="cbJN" value="1" checked><label for="cbJN">un joyeux Noël</label></li>
+                    <li><input type="checkbox" name="cbBA" id="cbBA" value="1" checked><label for="cbBA">une bonne année</label></li>
+                    <li><input type="checkbox" name="cbBS" id="cbBS" value="1" checked><label for="cbBS">une bonne santé</label></li>
+                    <li><input type="checkbox" name="cbPB" id="cbPB" value="1" checked><label for="cbPB">plein de bonheur</label></li>
+                    <li><input type="checkbox" name="cbPR" id="cbPR" value="1" checked><label for="cbPR">plein de réussite</label></li>
+                </ul>
+                       
+                <p>Indiquez vos informations ci-dessous :</p>
+                <table id="coordonnees">
+                    <tr>
+                        <td>Votre nom :</td>
+                        <td><input type="text" name="nom" size="30" placeholder="Saisir votre nom" required></td>
+                    </tr>
+                    <tr>
+                        <td>Votre email :</td>
+                        <td><input type="email" name="email" size="30" placeholder="Saisir votre adresse mail" required></td>
+                    </tr>
+                </table>
+                
+                <p>Si vous le souhaitez vous pouvez ajouter un message personnalisé :</p>
+                
+                <textarea name="message" id="message" placeholder="Saisir votre message"></textarea>
+                
+                
+                <p>En cliquant ci-dessous, je m'engage à participer au grand tirage au sort<sup>1</sup>.  
+                <span id="enbas">
+                    <br><sup>1</sup>Jeu gratuit sans obligation d'achat, dont le règlement a été déposé auprès de Me De Riccart à 
+                    Besançon. Descriptif des lots - 1er lot : un exemplaire dédicacé par la rédaction du calendrier 2017 de 
+                    notre journaliste vedette Delphine Talaron - du 2e au 5e lot : un exemplaire du calendrier 2017 des Dieux 
+                    du CMI - du 6e au 15e lot : une place en CMI PICS au S2. 
+                </span>
+                </p>
+                
+                <p>        
+                    <input type="submit" name="btnSubmit" value="Voir carte">
+                    <input type="reset" name="btnReset" value="Annuler">
+                </p>
+
+            </section>
+            
+        
+       </form>
+        
+        <section>
+            <h2>Aperçu de la carte générée</h2>
+            <iframe name="myIFrame" id="myIFrame" src="carte.html"></iframe>
+        </section>
+        
+
+        
+    </main>
+                
+    <footer>
+        &copy; CMI Informatique - Novembre 2016 - Tous droits réservés
+    </footer>
+    
+
+
+</body>
+
+
+</html>
