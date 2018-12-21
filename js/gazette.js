@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function(_e) {
     
-    var prefix = (document.location.href.indexOf("/html/") > 0) ? ".." : ".";
+    var prefix = (document.location.href.endsWith("index.html") > 0) ? "." : "..";
     
     var nav = document.querySelector("nav");
     nav.innerHTML = "<ul>" +
