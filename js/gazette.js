@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", function(_e) {
                     '<li><a href="' + prefix + '/html/archives.html">archives</a></li>' + 
                 '</ul>' + 
             '</li>' +
-            '<li><a href="abonnement.html">S\'abonner</a></li>' +
-            '<li><a href="apropos.html">A propos</a></li>' + 
+            '<li><a href="' + prefix + '/html/abonnement.html">S\'abonner</a></li>' +
+            '<li><a href="' + prefix + '/html/apropos.html">A propos</a></li>' + 
             '<li><a href="mailto:contact@gazette-cmi.fr?subject=J%20aime%20beaucoup%20ce%20que%20vous%20faites">Nous contacter</a></li>' +
         '</ul>';
     
