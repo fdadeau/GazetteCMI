@@ -43,108 +43,123 @@ init = function() {
         allParams[zeParam[0]] = zeParam[1];
     } 
     
-    var allSet = allParams["journaliste"] && allParams["nom"] && allParams["email"] && (allParams["cbBA"] || allParams["cbBS"] || allParams["cbPB"] || allParams["cbPR"]); 
+    var allSet = allParams["journaliste"] && allParams["nom"] && (allParams["cbBA"] || allParams["cbBS"] || allParams["cbPB"] || allParams["cbPR"]); 
     if (!allSet) {
         return;
     }
                                                                                         
     var imgLogo = new Image();
-    imgLogo.src = "../images/titre.png";
-    imgLogo.onload = function() {
-        var w = 250;
-        var h = this.height / this.width * w | 0;
-        ctx.drawImage(this, 0, 0, this.width, this.height, 270, 50, w, h);
-        // filtre pour inverser l'image 
-        var imgData = ctx.getImageData(270, 50, w, h);
-        var data = imgData.data;
-        for (var i=0; i < data.length; i+= 4) {
-            data[i] = 255 - data[i];
-            data[i+1] = 255 - data[i+1];
-            data[i+2] = 255 - data[i+2];
-        }
-        ctx.putImageData(data, 270, 50);
-    }
-    
-    var journalistes = { 
-            "johnny": "Johnny Bigoude", 
-            "delphine": "Delphine Talaron", 
-            "kelly": "Kelly Diot", 
-            "alex": "Alex Kuzbidon", 
-            "pete": "Pete Heuparkeur", 
-            "yves": "Yves Jourdelesse" 
-    }
-    
-    if (allParams["journaliste"]) {
-        var imgJournaliste = new Image();
-        imgJournaliste.src = "../images/" + allParams["journaliste"] + ".jpg";
-        imgJournaliste.onload = function() {
-            var w = 130;
+    var imgFond = new Image();
+    imgFond.src = "../images/besancon.jpg";
+    imgFond.onload = function() {
+        var w = 700;
+        var h = 400;
+        ctx.drawImage(this, 0, 0, this.width, this.height);
+        
+        imgLogo.src = "../images/titreB.png";
+        imgLogo.onload = function() {
+            var w = 250;
             var h = this.height / this.width * w | 0;
-            ctx.drawImage(this, 0, 0, this.width, this.height, 10, 10, w, h);
+            ctx.drawImage(this, 0, 0, this.width, this.height, 270, 50, w, h);
+            // filtre pour inverser l'image 
+            /*
+            var imgData = ctx.getImageData(270, 50, w, h);
+            var data = imgData.data;
+            for (var i=0; i < data.length; i+= 4) {
+                data[i] = 255 - data[i];
+                data[i+1] = 255 - data[i+1];
+                data[i+2] = 255 - data[i+2];
+            }
+            ctx.putImageData(data, 270, 50);
+            */
         }
-        ctx.fillText(journalistes[allParams["journaliste"]] + " et toute l'équipe de", 220, 40);
-    } 
-    else 
-        return;
-    
-    var x = 160;
-    var y = 130;    
-    var decX = 30, decY = 30;
-    if (! allParams["cbBA"]) {
-        y += decY/ 2;    
-    }
-    if (! allParams["cbBS"]) {
-        y += decY / 2;    
-    }
-    if (! allParams["cbPR"]) {
-        y += decY / 2;    
-    }
-    if (! allParams["cbPB"]) {
-        y += decY / 2;    
+        
+        affiche();
     }
     
-    ctx.fillText("vous souhaitent :", x, y);
-    x += decX;
-    y += decY; 
-    if (allParams["cbJN"]) {
-        ctx.fillText("un joyeux Noël", x, y);
+    function affiche() {
+    
+        var journalistes = { 
+                "johnny": "Johnny Bigoude", 
+                "delphine": "Delphine Talaron", 
+                "kelly": "Kelly Diot", 
+                "alex": "Alex Kuzbidon", 
+                "pete": "Pete Heuparkeur", 
+                "yves": "Yves Jourdelesse" 
+        }
+
+        if (allParams["journaliste"]) {
+            var imgJournaliste = new Image();
+            imgJournaliste.src = "../images/" + allParams["journaliste"] + ".jpg";
+            imgJournaliste.onload = function() {
+                var w = 130;
+                var h = this.height / this.width * w | 0;
+                ctx.drawImage(this, 0, 0, this.width, this.height, 10, 10, w, h);
+            }
+            ctx.fillText(journalistes[allParams["journaliste"]] + " et toute l'équipe de", 220, 40);
+        } 
+        else 
+            return;
+
+        var x = 160;
+        var y = 130;    
+        var decX = 30, decY = 30;
+        if (! allParams["cbBA"]) {
+            y += decY/ 2;    
+        }
+        if (! allParams["cbBS"]) {
+            y += decY / 2;    
+        }
+        if (! allParams["cbPR"]) {
+            y += decY / 2;    
+        }
+        if (! allParams["cbPB"]) {
+            y += decY / 2;    
+        }
+
+        ctx.fillText("vous souhaitent :", x, y);
         x += decX;
-        y += decY;
-    } 
-    if (allParams["cbBA"]) {
-        ctx.fillText("une bonne année", x, y);
-        x += decX;
-        y += decY;
-    } 
-    if (allParams["cbBS"]) {
-        ctx.fillText("une bonne santé (parce que c'est important)", x, y);
-        x += decX;
-        y += decY;
-    } 
-    if (allParams["cbPR"]) {
-        ctx.fillText("plein de réussite", x, y);
-        x += decX;
-        y += decY;
-    } 
-    if (allParams["cbPB"]) {
-        ctx.fillText("plein de bonheur", x, y);
-        x += decX;
-        y += decY;
-    } 
-    
-    
-    
-    if (allParams["message"] && allParams["message"].trim() != "") {
-        ctx.fillText("de la part de " + decodeURIComponent(allParams["nom"]).replace(/\+/g," ") + " (" + decodeURIComponent(allParams["email"]).replace(/\+/g," ") + ")", 20, 320);
-        ctx.fillText("avec le message :", 20, 350);
-        ctx.fillText('"' + decodeURIComponent(allParams["message"]).replace(/\+/g," ") + '"', 40, 380);
-    }
-    else {
-        ctx.fillText("de la part de " + decodeURIComponent(allParams["nom"]).replace(/\+/g," ") + " (" + decodeURIComponent(allParams["email"]).replace(/\+/g," ") + ")", 20, 380);
-    }
-    
-    if (allParams["nom"]) {
-        window.loop(); 
+        y += decY; 
+        if (allParams["cbJN"]) {
+            ctx.fillText("un joyeux Noël", x, y);
+            x += decX;
+            y += decY;
+        } 
+        if (allParams["cbBA"]) {
+            ctx.fillText("une bonne année", x, y);
+            x += decX;
+            y += decY;
+        } 
+        if (allParams["cbBS"]) {
+            ctx.fillText("une bonne santé (parce que c'est important)", x, y);
+            x += decX;
+            y += decY;
+        } 
+        if (allParams["cbPR"]) {
+            ctx.fillText("plein de réussite", x, y);
+            x += decX;
+            y += decY;
+        } 
+        if (allParams["cbPB"]) {
+            ctx.fillText("plein de bonheur", x, y);
+            x += decX;
+            y += decY;
+        } 
+
+
+
+        if (allParams["message"] && allParams["message"].trim() != "") {
+            ctx.fillText("de la part de " + decodeURIComponent(allParams["nom"]).replace(/\+/g," ")/* + " (" + decodeURIComponent(allParams["email"]).replace(/\+/g," ") + ")"*/, 20, 320);
+            ctx.fillText("avec le message :", 20, 350);
+            ctx.fillText('"' + decodeURIComponent(allParams["message"]).replace(/\+/g," ") + '"', 40, 380);
+        }
+        else {
+            ctx.fillText("de la part de " + decodeURIComponent(allParams["nom"]).replace(/\+/g," ") /*+ " (" + decodeURIComponent(allParams["email"]).replace(/\+/g," ") + ")"*/, 20, 380);
+        }
+
+        if (allParams["nom"]) {
+            window.loop(); 
+        }
     }
 }
     
