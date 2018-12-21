@@ -112,6 +112,23 @@ body > header, main, body > footer {
 }
 
 
+@media all and (max-width: 900px) {
+    
+    body > header, main, body > footer {
+        width: 90%;
+    }
+    
+    body > header > img {
+        width: 80%;
+        height: auto;
+    }
+    
+    iframe {
+        width: 80vw !important;
+        height: calc((80vw * 4) / 7) !important;
+    }
+}
+
 
 p, blockquote {
     text-align: justify;
@@ -211,6 +228,26 @@ nav a[href]:hover {
     border-radius: 10px;
     background: #333;
 }
+
+
+@media all and (max-width: 700px) {
+    nav {
+        width: 95%;
+        display: block;
+        height: auto !important;
+        position: relative;
+    }
+    nav ul, nav ul li {
+        display: block !important;
+        float: none;
+        height: auto;
+        width: auto;
+    }
+    nav li {
+         margin-left: 4vw !important;   
+    }
+}
+
 
 /**********************************************************************
                         EN-TETE 
@@ -355,6 +392,19 @@ section article h3 {
     width: 260px;
     height: 195px;
 }
+
+@media all and (max-width: 900px) {
+    #index section article {
+        width: 30%;
+        margin: 1.5%;
+        font-size: 80%;
+    }
+    #index section article img {
+        width: 95%;
+        height: auto;
+    }
+}
+
 
 #index section {
     min-height: 315px;
@@ -520,7 +570,7 @@ form section:last-of-type p:last-of-type input:hover {
 ****************************************************************/
 
 #horoscope {
-    width: 700px;
+    width: 90%;
     margin: 10px auto;
     font-size: 14px;
 }
