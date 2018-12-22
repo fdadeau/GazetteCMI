@@ -76,7 +76,7 @@ function ChatBot(prefix) {
 
     var reponse = null;
 
-    setTimeout(function() { that.montrer(); }, Math.random() * 20000 |  0);
+    setTimeout(function() { that.montrer(); }, Math.random() * 20000 + 10000 |  0);
 
     this.montrer = function () {
         view.classList.add("actif");
