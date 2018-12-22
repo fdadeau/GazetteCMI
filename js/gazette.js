@@ -310,6 +310,7 @@ function ChatBot(prefix) {
                 state = 67;
                 break;
             case 67:
+                this.afficher(CHAT, "Je te laisse, A+.");
                 overlay.classList.remove("visible");
                 state = -1;
                 break;
