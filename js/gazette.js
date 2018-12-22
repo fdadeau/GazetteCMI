@@ -91,7 +91,7 @@ function ChatBot(prefix) {
     
     var state = null;
     var enAttente = false;
-    var sujetsLibres = [5];
+    var sujetsLibres = [0,1,2,3,4,5];
     
     this.ditQuelqueChose = function (lastIntent) {
         
@@ -108,7 +108,7 @@ function ChatBot(prefix) {
                 break;    
             case 0: 
                 if (lastIntent == "aurevoir" || sujetsLibres.length == 0) {
-                    this.afficher(CHAT, "OK bye. Je reviendrai plus tard.");
+                    this.afficher(CHAT, "Allez bye, je dois filer.");
                     state = -1;
                     break;
                 }
@@ -311,7 +311,7 @@ function ChatBot(prefix) {
                 break;
             case 67:
                 overlay.classList.remove("visible");
-                state = 999;
+                state = -1;
                 break;
             case 81: 
                 this.afficher(CHAT, "Dis donc, tu voulais te débarrasser de moi ?");
