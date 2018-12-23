@@ -127,6 +127,11 @@ function ChatBot(prefix) {
                 sujetsLibres.splice(sujetsLibres.indexOf(n), 1);
                 break;
             case 11:
+                if (lastIntent == "aurevoir") {
+                    this.afficher(CHAT, 'OK bye. Je reviendrai plus tard.<br><iframe src="https://giphy.com/embed/l3vRbyZfZkTv1GzbG" width="216" height="121" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
+                    state = -1;
+                    break;
+                }
                 var noms = ["Bernard", "Dadeau", "Masson", "Peureux", "Hufflen"];
                 this.afficher(CHAT, "Et qu'est-ce que tu penses de M. " + noms[Math.random() * noms.length | 0] + " ?");
                 enAttente = true;
@@ -134,7 +139,7 @@ function ChatBot(prefix) {
                 break;
             case 12:
                 if (lastIntent == "positif") {
-                    this.afficher(CHAT, "Ah c'est sympa, je lui dirai.");
+                    this.afficher(CHAT, '<iframe src="https://giphy.com/embed/yoJC2El7xJkYCadlWE" width="216" height="132" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                     state = 0;
                     break;
                 }
@@ -144,7 +149,7 @@ function ChatBot(prefix) {
                     break;
                 }
                 if (lastIntent == "neutre") {
-                    this.afficher(CHAT, "Bah c'est pas grave.");
+                    this.afficher(CHAT, '<iframe src="https://giphy.com/embed/yoJC2Olx0ekMy2nX7W" width="216" height="118" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                     state = 0;
                     break;
                 }
@@ -182,12 +187,12 @@ function ChatBot(prefix) {
                 state = 23;
                 break;
             case 23: 
-                if (lastIntent == "accord") {
+                if (lastIntent == "accord" || lastIntent == "positif") {
                     this.afficher(CHAT, "Je savais que tu apprécierais.");
                     state = 999;
                     break;
                 }
-                if (lastIntent == "desaccord") {
+                if (lastIntent == "desaccord" || lastIntent == "negatif") {
                     this.afficher(CHAT, "Pourtant, c'est ma chanson préférée !");
                     state = 24;
                     break;
@@ -376,7 +381,7 @@ function ChatBot(prefix) {
     var intentions = {
         accord: ["oui", "oh oui alors", "je veux bien", "d'accord", "je suis d'accord", "pourquoi pas", "c'est sûr", "ok", "pas de soucis", "ca ne me dérange pas", "envoie", "zyva", "allons y", "vas-y", "sur", "sure", "sûr", "sûre", "bien sur", "bien sûr", "of course", "évidemment", "oh que oui", "bah oui"], 
         desaccord: ["non", "je n'ai pas envie", "pas envie", "ca me fait chier", "aucune envie", "pas du tout", "aucunement", "tu me fais chier", "c'est pas la peine", "pas vraiment", "pas trop"],
-        positif: ["j'aime", "j'aime bien", "j'aime beaucoup", "cool", "trop bien", "j'adore", "c'est meilleur", "il est super", "il est trop fort", "super", "génial", "c'est pas mal", "lol", "omg", "trop bien"],
+        positif: ["j'aime", "j'aime bien", "j'aime beaucoup", "cool", "trop bien", "j'adore", "c'est meilleur", "il est super", "il est trop fort", "super", "génial", "c'est pas mal", "lol", "omg", "trop bien","j'espère", "j'espère bien"],
         negatif: ["je n'aime pas", "pas cool", "c'est un con", "c'est un abruti", "j'aime pas", "c'est nul", "c'est pas top", "pas terrible", "pas génial", "pas glop", "il est méchant", "c'est le mal incarné", "il est diabolique"],
         neutre: ["je ne sais pas", "je sais pas", "aucune idée", "aucune idee", "bof", "pas trop", "sais pas", "idk", "don't know"],
         salut: ["hello", "bonjour", "salut", "salut ca va ?", "coucou", "hi", "ola que tal", "ola", "guten tag", "hello boy", "salut les darons"],
