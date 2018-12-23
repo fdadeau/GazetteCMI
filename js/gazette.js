@@ -98,8 +98,8 @@ function ChatBot(prefix) {
         enAttente = false;
         
         switch (state) {
-            case null:
-                this.afficher(CHAT, "Bonjour !");
+            case null:          
+                this.afficher(CHAT, 'Bonjour !<br><iframe src="https://giphy.com/embed/Nx0rz3jtxtEre" width="216" height="108" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                 state = 0;
                 enAttente = true;
                 break;
@@ -108,7 +108,7 @@ function ChatBot(prefix) {
                 break;    
             case 0: 
                 if (lastIntent == "aurevoir" || sujetsLibres.length == 0) {
-                    this.afficher(CHAT, "Allez bye, je dois filer.");
+                    this.afficher(CHAT, 'Allez bye, je dois filer.<br><iframe src="https://giphy.com/embed/l3vRbyZfZkTv1GzbG" width="216" height="121" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                     state = -1;
                     break;
                 }
@@ -139,7 +139,7 @@ function ChatBot(prefix) {
                     break;
                 }
                 if (lastIntent == "negatif") {
-                    this.afficher(CHAT, "Oh non, ça va lui briser son petit coeur...");   
+                    this.afficher(CHAT, '<iframe src="https://giphy.com/embed/OhrNfRrBxgz16" width="216" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');   
                     state = 0;
                     break;
                 }
@@ -149,7 +149,7 @@ function ChatBot(prefix) {
                     break;
                 }
                 if (lastIntent == "aurevoir") {
-                    this.afficher(CHAT, "OK bye. Je reviendrai plus tard.");
+                    this.afficher(CHAT, 'OK bye. Je reviendrai plus tard.<br><iframe src="https://giphy.com/embed/l3vRbyZfZkTv1GzbG" width="216" height="121" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                     state = -1;
                     break;
                 }
@@ -169,7 +169,7 @@ function ChatBot(prefix) {
                     break;
                 }                
                 if (lastIntent == "aurevoir") {
-                    this.afficher(CHAT, "OK bye. Je reviendrai plus tard.");
+                    this.afficher(CHAT, 'OK bye. Je reviendrai plus tard.<br><iframe src="https://giphy.com/embed/l3vRbyZfZkTv1GzbG" width="216" height="121" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                     state = -1;
                     break;
                 }
@@ -193,7 +193,7 @@ function ChatBot(prefix) {
                     break;
                 }
                 if (lastIntent == "aurevoir") {
-                    this.afficher(CHAT, "OK bye. Je reviendrai plus tard.");
+                    this.afficher(CHAT, 'OK bye. Je reviendrai plus tard.<br><iframe src="https://giphy.com/embed/l3vRbyZfZkTv1GzbG" width="216" height="121" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                     state = -1;
                     break;
                 }
@@ -205,7 +205,7 @@ function ChatBot(prefix) {
                 state = -1;
                 break;
             case 31:
-                this.afficher(CHAT, "C'est joli, j'aime beaucoup.");
+                this.afficher(CHAT, '<iframe src="https://giphy.com/embed/kUFlw7XaGE36w" width="216" height="130" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                 state = 31.1;
                 break;
             case 31.1:
@@ -219,18 +219,18 @@ function ChatBot(prefix) {
                 break;
             case 33: 
                 if (lastIntent == "accord") {
-                    this.afficher(CHAT, "Moi aussi ! Ca nous fait des points en commun !");
+                    this.afficher(CHAT, 'Moi aussi ! Ca nous fait des points en commun !<br><iframe src="https://giphy.com/embed/N8HOUxldQlu3m" width="216" height="92" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                     state = 0;   
                     break;
                 }
                 if (lastIntent == "desaccord") {
-                    this.afficher(CHAT, "Est-ce que je peux savoir pourquoi ?");
+                    this.afficher(CHAT, 'Est-ce que je peux savoir pourquoi ?<br><iframe src="https://giphy.com/embed/1hg6ENA8ixFEk" width="216" height="92" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                     enAttente = true;
                     state = 34;   
                     break;
                 }
                 if (lastIntent == "aurevoir") {
-                    this.afficher(CHAT, "OK bye. Je reviendrai plus tard.");
+                    this.afficher(CHAT, 'OK bye. Je reviendrai plus tard.<br><iframe src="https://giphy.com/embed/l3vRbyZfZkTv1GzbG" width="216" height="121" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                     state = -1;
                     break;
                 }
@@ -242,11 +242,11 @@ function ChatBot(prefix) {
                 state = -1;
                 break;
             case 41: 
-                this.afficher(CHAT, "Ouais moi aussi ça me fait une belle jambe.");
+                this.afficher(CHAT, 'Ouais moi aussi ça me fait une belle jambe.<br><iframe src="https://giphy.com/embed/ZqlvCTNHpqrio" width="216" height="116" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                 state = 999;
                 break;
             case 51: 
-                this.afficher(CHAT, "Et tu penses avoir été assez sage pour mériter ça ?");
+                this.afficher(CHAT, 'Et tu penses avoir été assez sage pour mériter ça ?<br><iframe src="https://giphy.com/embed/6BZaFXBVPBtok" width="216" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                 state = 52;
                 enAttente = true;
                 break;
@@ -257,12 +257,12 @@ function ChatBot(prefix) {
                     break;
                 }
                 if (lastIntent == "desaccord") {
-                    this.afficher(CHAT, "Hummm, toi tu as fait des trucs pas jolis-jolis...");
+                    this.afficher(CHAT, 'Hummm, toi tu as fait des trucs pas jolis-jolis...<br><iframe src="https://giphy.com/embed/I37q1XjGvAtjy" width="216" height="90" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                     state = 999;
                     break;
                 }
                 if (lastIntent == "aurevoir") {
-                    this.afficher(CHAT, "OK bye. Je reviendrai plus tard.");
+                    this.afficher(CHAT, 'OK bye. Je reviendrai plus tard.<br><iframe src="https://giphy.com/embed/l3vRbyZfZkTv1GzbG" width="216" height="121" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                     state = -1;
                     break;
                 }
@@ -281,7 +281,7 @@ function ChatBot(prefix) {
                     break;
                 }
                 if (lastIntent == "aurevoir") {
-                    this.afficher(CHAT, "OK bye. Je reviendrai plus tard.");
+                    this.afficher(CHAT, 'OK bye. Je reviendrai plus tard.<br><iframe src="https://giphy.com/embed/l3vRbyZfZkTv1GzbG" width="216" height="121" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                     state = -1;
                     break;
                 }
@@ -298,7 +298,7 @@ function ChatBot(prefix) {
                 state = 64;
                 break;
             case 64:
-                this.afficher(CHAT, "C'est fun hein ?");
+                this.afficher(CHAT, 'C\'est fun hein ?<br><iframe src="https://giphy.com/embed/KZd26L2o8QXtK" width="216" height="116" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                 state = 65;
                 break;
             case 65:
@@ -319,7 +319,7 @@ function ChatBot(prefix) {
                 state = 82;
                 break;
             case 82: 
-                this.afficher(CHAT, "Je te dérange ??");
+                this.afficher(CHAT, 'Je te dérange ??<br><iframe src="https://giphy.com/embed/11tTNkNy1SdXGg" width="216" height="120" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
                 state = 83;
                 break;
             case 83:
