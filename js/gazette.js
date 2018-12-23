@@ -134,7 +134,7 @@ function ChatBot(prefix) {
                 break;
             case 12:
                 if (lastIntent == "positif") {
-                    this.afficher(CHAT, "Ah OK je lui dirai.");
+                    this.afficher(CHAT, "Ah c'est sympa, je lui dirai.");
                     state = 0;
                     break;
                 }
@@ -327,7 +327,7 @@ function ChatBot(prefix) {
                 state = 84;
                 break;
             case 84: 
-                this.afficher(CHAT, "Je t'empêche de voir ?");
+                this.afficher(CHAT, "Je t'empêche de lire ?");
                 view.classList.add("large");
                 state = 85;
                 break;
@@ -376,7 +376,7 @@ function ChatBot(prefix) {
     var intentions = {
         accord: ["oui", "oh oui alors", "je veux bien", "d'accord", "je suis d'accord", "pourquoi pas", "c'est sûr", "ok", "pas de soucis", "ca ne me dérange pas", "envoie", "zyva", "allons y", "vas-y", "sur", "sure", "sûr", "sûre", "bien sur", "bien sûr", "of course", "évidemment", "oh que oui", "bah oui"], 
         desaccord: ["non", "je n'ai pas envie", "pas envie", "ca me fait chier", "aucune envie", "pas du tout", "aucunement", "tu me fais chier", "c'est pas la peine", "pas vraiment", "pas trop"],
-        positif: ["j'aime", "j'aime bien", "j'aime beaucoup", "cool", "trop bien", "j'adore", "c'est meilleur", "il est super", "il est trop fort", "super", "génial", "c'est pas mal"],
+        positif: ["j'aime", "j'aime bien", "j'aime beaucoup", "cool", "trop bien", "j'adore", "c'est meilleur", "il est super", "il est trop fort", "super", "génial", "c'est pas mal", "lol", "omg", "trop bien"],
         negatif: ["je n'aime pas", "pas cool", "c'est un con", "c'est un abruti", "j'aime pas", "c'est nul", "c'est pas top", "pas terrible", "pas génial", "pas glop", "il est méchant", "c'est le mal incarné", "il est diabolique"],
         neutre: ["je ne sais pas", "je sais pas", "aucune idée", "aucune idee", "bof", "pas trop", "sais pas", "idk", "don't know"],
         salut: ["hello", "bonjour", "salut", "salut ca va ?", "coucou", "hi", "ola que tal", "ola", "guten tag", "hello boy", "salut les darons"],
@@ -397,7 +397,7 @@ function ChatBot(prefix) {
                     if (found == null || d < dist) {
                         dist = d;
                         found = intent;
-                        console.log(intent + " --> " + (100 - dist*100 | 0) + " (" + intentions[intent][i] + ")");
+                        // console.log(intent + " --> " + (100 - dist*100 | 0) + " (" + intentions[intent][i] + ")");
                     }
                 }
             }
