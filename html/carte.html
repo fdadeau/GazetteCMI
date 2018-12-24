@@ -157,10 +157,20 @@ init = function() {
             ctx.fillText("de la part de " + decodeURIComponent(allParams["nom"]).replace(/\+/g," ") /*+ " (" + decodeURIComponent(allParams["email"]).replace(/\+/g," ") + ")"*/, 20, 380);
         }
 
+        if (window.innerWidth < 700) {
+            WIDTH = window.innerWidth;
+            HEIGHT = window.innerWidth * 4 / 7;
+            cvs.style.width = WIDTH + "px";
+            cvs.style.height = HEIGHT + "px";
+            cvs.style.left = ((window.innerWidth - WIDTH) / 2) + "px";
+            cvs.style.top = ((window.innerHeight - HEIGHT) / 2) + "px";
+        }
+        
         if (allParams["nom"]) {
             window.loop(); 
         }
     }
+    
 }
     
     </script>
